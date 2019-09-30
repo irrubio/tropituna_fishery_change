@@ -18,6 +18,4 @@ The scripts follow a linear workflow from scripts starting by 1 to 5 (Figure 1):
 
   e. Scripts starting with a 5 produce random forest analysis (article Figures 4 and 5).
 
-
-<img scr="images/outline_scripts.jpg" width="500" height="400">
-
+![](images/outline_scripts.jpg)

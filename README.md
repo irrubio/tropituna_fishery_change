@@ -16,6 +16,7 @@ This repository allows to replicate results from the article XXX. The scripts fo
 
 
 ![](images/outline_scripts.jpg)
+
 **Figure 1. Scripts workflow.** Script titles appear inside black boxes, data created in each script and needed for the next script appear in purple and green PDF bubbles indicate that the script produces Figures included in the article. Blue bubbles indicate the source of the data used (web or literature). Number of files producedthat are higher than 1 appear inside brackets.
 
 ## License

@@ -14,6 +14,9 @@ This repository allows to replicate results from the article XXX. The scripts fo
 
 * Scripts starting with a 5 produce random forest analysis (article Figures 4 and 5).
 
+
 ![](images/outline_scripts.jpg)
+
+Figure 1. Scripts workflow.
 
 ## License

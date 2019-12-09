@@ -10,7 +10,7 @@ library(tidyverse)
 library(ggridges)
 library(lubridate)
 library(broom)
-library(modelr)
+library(modelr) #add_predictions/predictors
 library(gridExtra)
 
 #1.Set variables
@@ -69,26 +69,36 @@ cp0.S <- cp1.S %>%
             #COG called lat for graphical purpose in ggplot
   
 cp1 <- filter(cp1, effort > 0)
-  
+
+lab1 <- paste(seq(0, 30, by = 5), "ºN", sep = "")
+lab2 <- paste(seq(5, 25, by = 5), "ºS", sep = "")
+lat_labels <- c(rev(lab2), lab1)
+
 #6.Plot effort "distribution" by year and Lat COG
 g0 <- ggplot(cp1, aes(x = Lat, y = as.factor(YearC), height = effort)) + 
           geom_density_ridges(stat = "identity", scale = 1, na.rm = T,
                               rel_min_height = 0.00001) +
           theme_ridges(font_size = 30) +#grid = TRUE
-          labs(x = "Latitude (º)", y = " ",
-               title = "") +
-          scale_x_continuous(limits = c(-25,latitude2), breaks = seq(-25, 30, 5)) +
+          ylab("") +
+          xlab("latitude") +
+          scale_x_continuous(limits = c(-25,latitude2), breaks = seq(-25, 30, 5),
+                             labels = lat_labels) +
           theme(axis.text.x = element_text(angle = 270, hjust = 0, 
                                            vjust = 0.25, size = 11),
                 axis.text.y = element_text(size = 11),
                 axis.title = element_text(size = 11),
+                axis.title.y = element_text(hjust = 0.5),
                 plot.title = element_text(size = 11),
                 panel.grid.major.x = element_blank()) +
           coord_flip()  +
-          geom_point(data = cp0.N, aes(x = Lat, y = as.factor(YearC))) + #COG called lat
-          geom_point(data = cp0.S, aes(x = Lat, y = as.factor(YearC))) + #COG called lat
-          geom_line(data = cp0.N, group = 1) +
-          geom_line(data = cp0.S, group = 1) 
+          geom_point(data = cp0.N, aes(x = Lat, y = as.factor(YearC)), color = "blue") + #COG called lat
+          geom_point(data = cp0.S, aes(x = Lat, y = as.factor(YearC)), color = "red") + #COG called lat
+          geom_line(data = cp0.N, group = 1, color = "blue") +
+          geom_line(data = cp0.S, group = 1, color = "red") +
+          annotate("label", x = 27, y = as.factor(2002), label = "Northern COG",
+                   size = 4, color = "blue") +
+          annotate("label", x = -18, y = as.factor(2002), label = "Southern COG",
+                   size = 4, color = "red") 
   
   plot(g0)
   

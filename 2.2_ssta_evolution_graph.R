@@ -141,3 +141,25 @@ png(file = "paper_figures_submitted/Figure_1.png",
     width = 18, height = 5, units = 'in', res = 600)
 multiplot(g1, g3, cols = 2)
 dev.off()
+
+#SI
+g4 <- ggplot(dat[541:dim(dat)[1],],aes(t, ssta))+
+        scale_x_date(breaks = seq(as.Date("1856/01/01"), 
+                                  as.Date(paste(y2,"/10/01", sep = "")),
+                                  "5 years"),
+                     labels = date_format("%Y"),
+                     expand = c(0,0)) +
+        labs(y = "SST anomaly (Cº)")+
+        theme_bw()+
+        thm +
+        geom_point()+
+        geom_line()+ 
+        geom_line(data = dat[which(dat$t >= paste(y1, "-01-01", sep = "")), ], 
+                  aes(t ,ssta), color = "black")+
+        geom_point(data = dat[which(dat$t >= paste(y1, "-01-01", sep = "")), ],
+                   aes(t, ssta), color = "black")
+
+png(file = "paper_figures_submitted/Figure_SI5.png", 
+    width = 7, height = 5, units = 'in', res = 600)
+g4
+dev.off()

@@ -150,7 +150,7 @@ for (e in 1:4) { #include results only for EOF 1 and 2
     
   EOFplot[[e]] <- ggplot(longData, aes(x = lon, y = lat)) +
       geom_raster(aes(fill = brea)) +
-      geom_text(aes(label = value2), colour = "white", size = 3.5, fontface = "bold") +
+      geom_text(aes(label = value2), colour = "white", size = 4, fontface = "bold") +
       scale_fill_manual(values = c("(-Inf,-0.2]" = "black",
                                    "(-0.2,-0.1]" = "dodgerblue4",
                                    "(-0.1,0]" = "turquoise3",
@@ -159,7 +159,7 @@ for (e in 1:4) { #include results only for EOF 1 and 2
                                    "(0.2, Inf]" = "deeppink2"),
                         drop = FALSE,
                         guide = guide_legend(reverse = TRUE))+
-      labs(x="lon (ºE)", y="lat (ºN)", title= paste("(b)",e, "EOF - effortA", "-", round(PoV[e], 0),
+      labs(x="longitude", y="latitude", title= paste("(b)",e, "EOF - effortA", "-", round(PoV[e], 0),
                                                     "%")) +
       theme_bw() + theme(axis.text.x = element_text(size = 17),
                          axis.text.y = element_text(size = 17),
@@ -178,7 +178,7 @@ for (e in 1:4) { #include results only for EOF 1 and 2
   if(e == 1){
    #PAPER FIGURES
   png(file = "paper_figures_submitted/Figure_3b.png", 
-       width = 10, height = 5, units = 'in', res = 600)
+       width = 12, height = 5, units = 'in', res = 600)
   par(mfrow = c(2, 1))
   multiplot(EOFplot[[e]], PCplot[[e]], cols = 2)
   dev.off()

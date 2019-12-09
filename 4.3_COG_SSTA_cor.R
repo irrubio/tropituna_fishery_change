@@ -4,6 +4,7 @@ library(tidyverse)
 library(corrplot)#for corplots
 library(Hmisc)#for corrplot function
 library(pracma) #detrend function
+library(modelr) #add_predictions/predictors
 
 ####1.2) LOAD CPUE_COG data
 COGN <- read.csv("data/4_lat_COG_N.csv")
@@ -39,3 +40,17 @@ valcol <- data$col
 
 plot(data$COG_S, data$ssta, 
      xlab = "COGS", ylab = "ssta", col = valcol)
+
+# fit <- lm(COG_S ~ ssta, data = data)
+# print(summary(fit))
+# dat <- data %>%
+#   add_predictions(fit) %>%
+#   add_residuals(fit)
+# ## plot predictions
+# dat %>%
+#   ggplot(aes(ssta, COG_S)) + geom_point() +#geom_line() +
+#   geom_line(aes(y = pred), col = 'blue')+
+#   labs(title = paste("pvalue=", summary(fit)$coefficients[2, 4]))
+# ## plot residuals
+# dat %>%
+#   ggplot(aes(resid)) + geom_histogram()

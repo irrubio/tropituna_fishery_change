@@ -28,7 +28,7 @@ library(rgeos) # gBuffer, gOverlap
 table1 <- read_xlsx("data/t2ce_PS91-17_bySchool.xlsx", sheet = 1, skip = 6)
 
 #4.Convert lat&lon to their corresponding sign (N+S-E+O-)
-table <- table1 #convert to center of square
+table <- table1
 table$Lat <- case_when(
               table$QuadID == 1 ~  (table$Lat + 0.5),
               table$QuadID == 2 ~ -(table$Lat + 0.5),

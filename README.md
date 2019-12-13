@@ -1,4 +1,5 @@
 # tropituna_fishery_change
+[![DOI](https://zenodo.org/badge/211890444.svg)](https://zenodo.org/badge/latestdoi/211890444)
 
 ## Description
 

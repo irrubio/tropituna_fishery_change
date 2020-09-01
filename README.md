@@ -3,7 +3,7 @@
 
 ## Description
 
-This repository allows to replicate results from the article *"Southward re-distribution of tropical tuna fisheries activity can be explained by technological and management change"*. The scripts follow a linear workflow from scripts starting by 1 to 5 (Figure 1):
+This repository allows to replicate results from the article *"Southward re-distribution of tropical tuna fisheries activity can be explained by technological and management change"* (https://doi.org/10.1111/faf.12443). The scripts follow a linear workflow from scripts starting by 1 to 5 (Figure 1):
 
 * Scripts starting with a 1. They correspond to the ICCAT catch and effort data preparation and the empirical orthogonal functions (EOF) analysis of effort anomaly (effotA) (article Figure 3).
 
